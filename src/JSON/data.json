@@ -1,0 +1,244 @@
+﻿{
+    "Tunisia": [
+        {
+            "region": "Tunis",
+            "lat": "36.8008",
+            "lng": "10.18",
+            "population": "1056247",
+            "confirmed": "10562",
+            "sick": "31687",
+            "recovered": "15844",
+            "id": "1"
+        },
+        {
+            "region": "Sfax",
+            "lat": "34.75",
+            "lng": "10.72",
+            "population": "955421",
+            "confirmed": "9554",
+            "sick": "28663",
+            "recovered": "14331",
+            "id": "2"
+        },
+        {
+            "region": "Sousse",
+            "lat": "35.83",
+            "lng": "10.625",
+            "population": "787920",
+            "confirmed": "7879",
+            "sick": "23638",
+            "recovered": "11819",
+            "id": "3"
+        },
+        {
+            "region": "Gabès",
+            "lat": "33.9004",
+            "lng": "10.1",
+            "population": "674971",
+            "confirmed": "6750",
+            "sick": "20249",
+            "recovered": "10125",
+            "id": "4"
+        },
+        {
+            "region": "Kairouan",
+            "lat": "35.6804",
+            "lng": "10.1",
+            "population": "631842",
+            "confirmed": "6318",
+            "sick": "18955",
+            "recovered": "9478",
+            "id": "5"
+        },
+        {
+            "region": "Bizerte",
+            "lat": "37.2904",
+            "lng": "9.855",
+            "population": "576088",
+            "confirmed": "5761",
+            "sick": "17283",
+            "recovered": "8641",
+            "id": "6"
+        },
+        {
+            "region": "Gafsa",
+            "lat": "34.4204",
+            "lng": "8.78",
+            "population": "570599",
+            "confirmed": "5706",
+            "sick": "17118",
+            "recovered": "8559",
+            "id": "7"
+        },
+        {
+            "region": "Nabeul",
+            "lat": "36.4603",
+            "lng": "10.73",
+            "population": "568219",
+            "confirmed": "5682",
+            "sick": "17047",
+            "recovered": "8523",
+            "id": "8"
+        },
+        {
+            "region": "Ariana",
+            "lat": "36.8667",
+            "lng": "10.2",
+            "population": "548828",
+            "confirmed": "5488",
+            "sick": "16465",
+            "recovered": "8232",
+            "id": "9"
+        },
+        {
+            "region": "Kasserine",
+            "lat": "35.1804",
+            "lng": "8.83",
+            "population": "479520",
+            "confirmed": "4795",
+            "sick": "14386",
+            "recovered": "7193",
+            "id": "10"
+        },
+        {
+            "region": "Monastir",
+            "lat": "35.7307",
+            "lng": "10.7673",
+            "population": "439243",
+            "confirmed": "4392",
+            "sick": "13177",
+            "recovered": "6589",
+            "id": "11"
+        },
+        {
+            "region": "Tataouine",
+            "lat": "33",
+            "lng": "10.4667",
+            "population": "429912",
+            "confirmed": "4299",
+            "sick": "12897",
+            "recovered": "6449",
+            "id": "12"
+        },
+        {
+            "region": "Medenine",
+            "lat": "33.4",
+            "lng": "10.4167",
+            "population": "410812",
+            "confirmed": "4108",
+            "sick": "12324",
+            "recovered": "6162",
+            "id": "13"
+        },
+        {
+            "region": "Béja",
+            "lat": "36.7304",
+            "lng": "9.19",
+            "population": "401477",
+            "confirmed": "4015",
+            "sick": "12044",
+            "recovered": "6022",
+            "id": "14"
+        },
+        {
+            "region": "Jendouba",
+            "lat": "36.5",
+            "lng": "8.75",
+            "population": "379518",
+            "confirmed": "3795",
+            "sick": "11386",
+            "recovered": "5693",
+            "id": "15"
+        },
+        {
+            "region": "El Kef",
+            "lat": "36.1826",
+            "lng": "8.7148",
+            "population": "374300",
+            "confirmed": "3743",
+            "sick": "11229",
+            "recovered": "5615",
+            "id": "16"
+        },
+        {
+            "region": "Mahdia",
+            "lat": "35.4839",
+            "lng": "11.0409",
+            "population": "337331",
+            "confirmed": "3373",
+            "sick": "10120",
+            "recovered": "5060",
+            "id": "17"
+        },
+        {
+            "region": "Sidi Bouzid",
+            "lat": "35.0167",
+            "lng": "9.5",
+            "population": "303032",
+            "confirmed": "3030",
+            "sick": "9091",
+            "recovered": "4545",
+            "id": "18"
+        },
+        {
+            "region": "Tozeur",
+            "lat": "33.9304",
+            "lng": "8.13",
+            "population": "243156",
+            "confirmed": "2432",
+            "sick": "7295",
+            "recovered": "3647",
+            "id": "19"
+        },
+        {
+            "region": "Siliana",
+            "lat": "36.0833",
+            "lng": "9.3833",
+            "population": "223087",
+            "confirmed": "2231",
+            "sick": "6693",
+            "recovered": "3346",
+            "id": "20"
+        },
+        {
+            "region": "Kebili",
+            "lat": "33.69",
+            "lng": "8.971",
+            "population": "176945",
+            "confirmed": "1769",
+            "sick": "5308",
+            "recovered": "2654",
+            "id": "21"
+        },
+        {
+            "region": "Zaghouan",
+            "lat": "36.4",
+            "lng": "10.147",
+            "population": "156961",
+            "confirmed": "1570",
+            "sick": "4709",
+            "recovered": "2354",
+            "id": "22"
+        },
+        {
+            "region": "Ben Arous",
+            "lat": "36.7545",
+            "lng": "10.2217",
+            "population": "149453",
+            "confirmed": "1495",
+            "sick": "4484",
+            "recovered": "2242",
+            "id": "23"
+        },
+        {
+            "region": "Manouba",
+            "lat": "36.8101",
+            "lng": "10.0956",
+            "population": "107912",
+            "confirmed": "1079",
+            "sick": "3237",
+            "recovered": "1619",
+            "id": "24"
+        }
+    ]
+}
