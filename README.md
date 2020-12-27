@@ -28,7 +28,7 @@ Let us know what you think and what we can improve below. And good luck with dev
 
 ## About the porject 
 This is a part of bigger project
-
+This part presents the administrator vue in wich the admin can see the situation of crisis in numbers and charts, also the administrator can interact with the users and notify them according to their data and the data of the country.
 ## Features that we wanted to add 
 *Better map visualisation
 ## Features provivded
