@@ -12,17 +12,62 @@
           :data="infectedRegions.data"
           :options="infectedRegions.options"
           :responsive-options="infectedRegions.responsiveOptions"
-          color="#E91E63"
+          color="#553D67"
           hover-reveal
           type="Bar"
         >
+        <template v-slot:reveal-actions>
+            <v-tooltip bottom>
+              <template v-slot:activator="{ attrs, on }">
+                <v-btn
+                  v-bind="attrs"
+                  color="info"
+                  icon
+                  v-on="on"
+                >
+                  <v-icon
+                    color="info"
+                  >
+                    mdi-refresh
+                  </v-icon>
+                </v-btn>
+              </template>
+
+              <span>Refresh</span>
+            </v-tooltip>
+
+            <v-tooltip bottom>
+              <template v-slot:activator="{ attrs, on }">
+                <v-btn
+                  v-bind="attrs"
+                  light
+                  icon
+                  v-on="on"
+                >
+                  <v-icon>mdi-pencil</v-icon>
+                </v-btn>
+              </template>
+
+              <span>Change Date</span>
+            </v-tooltip>
+          </template>
+
+          <template v-slot:actions>
+            <v-icon
+              class="mr-1"
+              small
+            >
+              mdi-clock-outline
+            </v-icon>
+            <span class="caption grey--text font-weight-light">updated 10 minutes ago</span>
+          </template>
         </base-material-chart-card>
 
         <base-material-chart-card
           :data="infectedRegions2.data"
           :options="infectedRegions2.options"
           :responsive-options="infectedRegions2.responsiveOptions"
-          color="#E91E63"
+          color="#553D67"
           hover-reveal
           type="Bar"
         >
@@ -104,107 +149,137 @@
         >
           <template v-slot:heading>
             <div class="display-2 font-weight-light">
-              Employees Stats
+              Users dashboard
             </div>
 
             <div class="subtitle-1 font-weight-light">
-              New employees on 15th September, 2016
+              Updated since 30s
             </div>
           </template>
-          <v-card-text>
-            <v-data-table
-              :headers="headers"
-              :items="items"
-            />
-          </v-card-text>
-        </base-material-card>
-      </v-col>
-
-      <v-col
-        cols="12"
-        md="6"
-      >
-        <base-material-card class="px-5 py-3">
-          <template v-slot:heading>
-            <v-tabs
-              v-model="tabs"
-              background-color="transparent"
-              slider-color="white"
-            >
-              <span
-                class="subheading font-weight-light mx-3"
-                style="align-self: center"
-              >Tasks:</span>
-              <v-tab class="mr-3">
-                <v-icon class="mr-2">
-                  mdi-bug
-                </v-icon>
-                Bugs
-              </v-tab>
-              <v-tab class="mr-3">
-                <v-icon class="mr-2">
-                  mdi-code-tags
-                </v-icon>
-                Website
-              </v-tab>
-              <v-tab>
-                <v-icon class="mr-2">
-                  mdi-cloud
-                </v-icon>
-                Server
-              </v-tab>
-            </v-tabs>
+          <v-simple-table dark>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th
+          class="text-left"
+         v-for="item in headers"
+          :key="item.text"
+          >
+            {{item.text}}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="item in items"
+          :key="item"
+        >
+          <td
+          v-for="atr in item"
+          :key="atr"
+          >{{ atr }}</td>
+          <td>
+          <div class="text-center">
+          <v-dialog
+          v-model="dialog"
+          width="500"
+          >
+          <template v-slot:activator="{ on, attrs }">
+          <v-btn
+          color="red lighten-2"
+          dark
+          v-bind="attrs"
+          v-on="on"
+          >
+          Notify User
+          </v-btn>
           </template>
 
-          <v-tabs-items
-            v-model="tabs"
-            class="transparent"
-          >
-            <v-tab-item
-              v-for="n in 3"
-              :key="n"
+          <v-card>
+          <v-card-title class="headline grey lighten-2">
+          Privacy Policy
+          </v-card-title>
+
+        <v-card-text>
+             <v-textarea
+                name="input-7-1"
+                filled
+                v-model="msgTmp"
+                label="Message content"
+                auto-grow
+                required
+                value="Attention! Prenez soins de vous le nombre totale des nouveaux cas est 100!!"
+              ></v-textarea>
+              <v-btn
+            depressed
+            color="primary"
+            v-on:click="notifyUser"
             >
-              <v-card-text>
-                <template v-for="(task, i) in tasks[tabs]">
-                  <v-row
-                    :key="i"
-                    align="center"
-                  >
-                    <v-col cols="1">
-                      <v-list-item-action>
-                        <v-checkbox
-                          v-model="task.value"
-                          color="secondary"
-                        />
-                      </v-list-item-action>
-                    </v-col>
+            Send
+          </v-btn>
+          <br>
+          <br>
+          <div v-if="success">
+          <v-alert
+            border="left"
+            color="indigo"
+            dark
+          >
+           {{ success }}
+          </v-alert>
+          </div>
+          </v-card-text>
 
-                    <v-col cols="9">
-                      <div
-                        class="font-weight-light"
-                        v-text="task.text"
-                      />
-                    </v-col>
+          <v-divider></v-divider>
 
-                    <v-col
-                      cols="2"
-                      class="text-right"
-                    >
-                      <v-icon class="mx-1">
-                        mdi-pencil
-                      </v-icon>
-                      <v-icon
-                        color="error"
-                        class="mx-1"
-                      >
-                        mdi-close
-                      </v-icon>
-                    </v-col>
-                  </v-row>
-                </template>
-              </v-card-text>
-            </v-tab-item>
-          </v-tabs-items>
+          <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            text
+            @click="dialog = false"
+          >
+            I accept
+          </v-btn>
+          </v-card-actions>
+          </v-card>
+          </v-dialog>
+          </div>
+          </td>
+
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+            <v-card-text>
+             <v-textarea
+                name="input-7-1"
+                filled
+                v-model="msg"
+                label="Message content"
+                auto-grow
+                required
+                value="Attention! Prenez soins de vous le nombre totale des nouveaux cas est 100!!"
+              ></v-textarea>
+              <v-btn
+            depressed
+            color="primary"
+            v-on:click="notifyAll"
+            >
+            Notify All users
+          </v-btn>
+          <br>
+          <br>
+          <div v-if="success">
+          <v-alert
+            border="left"
+            color="indigo"
+            dark
+          >
+           {{ success }}
+          </v-alert>
+          </div>
+          </v-card-text>
         </base-material-card>
       </v-col>
     </v-row>
@@ -212,34 +287,18 @@
 </template>
 
 <script>
+    /* eslint-disable */
+
+  import Axios from "axios";
   import dataJson from '@/JSON/data.json'
   export default {
     name: 'DashboardDashboard',
 
     data () {
       return {
+        msg:"",
+        msgTmp:[],
         json: dataJson,
-        dataCompletedTasksChart: {
-          data: {
-            labels: ['12am', '3pm', '6pm', '9pm', '12pm', '3am', '6am', '9am'],
-            series: [
-              [230, 750, 450, 300, 280, 240, 200, 190],
-            ],
-          },
-          options: {
-            lineSmooth: this.$chartist.Interpolation.cardinal({
-              tension: 0,
-            }),
-            low: 0,
-            high: 10000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-            chartPadding: {
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-            },
-          },
-        },
         infectedRegions: {
           data: {
             labels: [],
@@ -316,115 +375,48 @@
           },
           {
             sortable: false,
-            text: 'Name',
-            value: 'name',
+            text: 'Temperature',
+            value: 'temperature',
           },
           {
             sortable: false,
-            text: 'Salary',
-            value: 'salary',
+            text: 'Cough',
+            value: 'CoughState',
             align: 'right',
           },
           {
             sortable: false,
-            text: 'Country',
-            value: 'country',
+            text: 'Tired',
+            value: 'tiredState',
             align: 'right',
           },
           {
             sortable: false,
-            text: 'City',
-            value: 'city',
+            text: 'Smell/Taste',
+            value: 'smellortaste',
+            align: 'right',
+          },
+          {
+            sortable: false,
+            text: 'Breathing diffuculty',
+            value: 'breathdifficulties',
+            align: 'right',
+          },
+          {
+            sortable: false,
+            text: 'Pressure/Pain',
+            value: 'cheetpainorpressure',
+            align: 'right',
+          },
+          {
+            sortable: false,
+            text: 'Loss Speech/Mouvement',
+            value: 'lossspeechormovement',
             align: 'right',
           },
         ],
-        items: [
-          {
-            id: 1,
-            name: 'Dakota Rice',
-            country: 'Niger',
-            city: 'Oud-Tunrhout',
-            salary: '$35,738',
-          },
-          {
-            id: 2,
-            name: 'Minerva Hooper',
-            country: 'Curaçao',
-            city: 'Sinaai-Waas',
-            salary: '$23,738',
-          },
-          {
-            id: 3,
-            name: 'Sage Rodriguez',
-            country: 'Netherlands',
-            city: 'Overland Park',
-            salary: '$56,142',
-          },
-          {
-            id: 4,
-            name: 'Philip Chanley',
-            country: 'Korea, South',
-            city: 'Gloucester',
-            salary: '$38,735',
-          },
-          {
-            id: 5,
-            name: 'Doris Greene',
-            country: 'Malawi',
-            city: 'Feldkirchen in Kārnten',
-            salary: '$63,542',
-          },
-        ],
-        tabs: 0,
-        tasks: {
-          0: [
-            {
-              text: 'Sign contract for "What are conference organizers afraid of?"',
-              value: true,
-            },
-            {
-              text: 'Lines From Great Russian Literature? Or E-mails From My Boss?',
-              value: false,
-            },
-            {
-              text: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
-              value: false,
-            },
-            {
-              text: 'Create 4 Invisible User Experiences you Never Knew About',
-              value: true,
-            },
-          ],
-          1: [
-            {
-              text: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
-              value: true,
-            },
-            {
-              text: 'Sign contract for "What are conference organizers afraid of?"',
-              value: false,
-            },
-          ],
-          2: [
-            {
-              text: 'Lines From Great Russian Literature? Or E-mails From My Boss?',
-              value: false,
-            },
-            {
-              text: 'Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit',
-              value: true,
-            },
-            {
-              text: 'Sign contract for "What are conference organizers afraid of?"',
-              value: true,
-            },
-          ],
-        },
-        list: {
-          0: false,
-          1: false,
-          2: false,
-        },
+        items: [],
+        success:null,
       }
     },
 
@@ -432,8 +424,64 @@
       complete (index) {
         this.list[index] = !this.list[index]
       },
+      getProfile() {
+        let i =1;
+      Axios.get("/userStates")
+        .then(Response => {
+          //console.log("RESPONSE RECEIVED : ", Response.data);
+          Object.values(Response.data).forEach(element => {
+            console.log(element);
+            element._id=i;
+            i++;
+          this.items.push(element);
+          });
+          })
+        .catch(errors => {
+          Object.values(errors.response.data.errors).forEach(element => {
+            console.log(element);
+          });
+        });
     },
-    /* eslint-disable */
+    notifyAll() {
+      let data ={
+        msg:"",
+        phone:[]
+      };
+      data.msg=this.msg;
+      data.phone=["94777621"];
+      console.log(data);
+      Axios.post("/send-all",data)
+        .then(Response => {
+          console.log("RESPONSE RECEIVED : ", Response.data);
+          this.success= Response.data.message;
+          })
+        .catch(errors => {
+          Object.values(errors.response.data.errors).forEach(element => {
+            console.log(element);
+          });
+        });
+    },
+    notifyUser() {
+      let data ={
+        msg:"",
+        phone:[]
+      };
+      data.msg=this.msgTmp;
+      data.phone=["94777621"];
+      console.log(data);
+      Axios.post("/send-all",data)
+        .then(Response => {
+          console.log("RESPONSE RECEIVED : ", Response.data);
+          this.success= Response.data.message;
+          })
+        .catch(errors => {
+          Object.values(errors.response.data.errors).forEach(element => {
+            console.log(element);
+          });
+        });
+        this.msgTmp ="";
+    },
+    },
 
     mounted () {
       let i=0;
@@ -442,12 +490,10 @@
 
          Object.values(this.json).forEach(element => {
          for(i=0;i<12;i++){
-                  //console.log(element[i].region);
                   this.infectedRegions.data.labels.push(element[i].region);
                   if(parseInt(element[i].sick)>max)
                   {
                     max = (parseInt(element[i].sick)/110000)*100;
-                    //console.log("MAXXXXX",max);
                   }
                   this.infectedRegions.data.series[0].push((parseInt(element[i].sick)/110000)*100);
                   this.infectedRegions.data.series[1].push((parseInt(element[i].recovered)/110000)*100);
@@ -462,7 +508,6 @@
                   if(parseInt(element[i].sick)>max)
                   {
                     max2 = (parseInt(element[i].sick)/110000)*100;
-                    //console.log("MAXXXXX",max);
                   }
                   this.infectedRegions2.data.series[0].push((parseInt(element[i].sick)/110000)*100);
                   this.infectedRegions2.data.series[1].push((parseInt(element[i].recovered)/110000)*100);
@@ -470,11 +515,19 @@
           }
                   console.log(this.infectedRegions2.options.high);
                    this.infectedRegions2.options.high=max2+20;
-
-
      });
-    
+
+          this.getProfile();
+
     },
+    watch :{
+      success(val) {
+      if (val) {
+        setTimeout(() => (this.success = null), 2000);
+        console.log(val);
+      }
+    }
+    }
         /* eslint-disable */
 
   }
