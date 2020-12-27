@@ -26,4 +26,11 @@ to as little as possible. Almost everything is inside `package.json` + some othe
 
 Let us know what you think and what we can improve below. And good luck with development!
 
+## About the porject 
+This is a part of bigger project
 
+## Features that we wanted to add 
+*Better map visualisation
+## Features provivded
+-visualizing Data about the spreading of the crisis (Map and chart)
+-sending SMS messages to all the user or to a specific user 
