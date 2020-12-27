@@ -523,7 +523,7 @@
     watch :{
       success(val) {
       if (val) {
-        setTimeout(() => (this.success = null), 2000);
+        setTimeout(() => (this.success = null), 5000);
         console.log(val);
       }
     }
