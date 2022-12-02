@@ -1,3 +1,17 @@
+## About the porject 
+This is a part of bigger project which me and my teamates developed during the Tunihack competition.
+The main idea of our solution is a crisis managment app (Mobile and Web versions) based on blockchain.
+This part presents the administration vue, in which the admin can see the situation of the crisis in realtime indicators and charts, also the administrator can interact with the users and notify them according to their data and the data of their local zone.
+
+## Features that we wanted to add 
+*Better map visualisation
+
+
+## Features provivded
+- Visualizing Data about the spreading of the crisis (Map and chart)
+- Sending SMS messages to all the user or to a specific user 
+
+
 ## Getting Started
 - Install Nodejs from [Nodejs Official Page](https://nodejs.org/en/)
 - Open your terminal
@@ -26,11 +40,3 @@ to as little as possible. Almost everything is inside `package.json` + some othe
 
 Let us know what you think and what we can improve below. And good luck with development!
 
-## About the porject 
-This is a part of bigger project
-This part presents the administrator vue in wich the admin can see the situation of crisis in numbers and charts, also the administrator can interact with the users and notify them according to their data and the data of the country.
-## Features that we wanted to add 
-*Better map visualisation
-## Features provivded
--visualizing Data about the spreading of the crisis (Map and chart)
--sending SMS messages to all the user or to a specific user 
